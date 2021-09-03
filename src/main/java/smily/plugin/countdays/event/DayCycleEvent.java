@@ -3,31 +3,33 @@ package smily.plugin.countdays.event;
 import org.bukkit.World;
 
 public class DayCycleEvent {
-    private boolean night;
-    private boolean morning;
-    private boolean afternoon;
-    private boolean nextDay;
-    private long time;
+    private World world;
 
-
+    public DayCycleEvent(World world){
+        this.world = world;
+    }
     
     public boolean isNight() {
-        return night;
+        long nightTimeStart = 18000;
+        long nightTimeEnd = 23999;
+
+        if (getExactTime(world) <= nightTimeStart || getExactTime(world) >=nightTimeEnd) return true; 
+        else return false;
     }
 
     public long getExactTime(World world) {
-        return time = world.getTime();
+        return world.getTime();
     }
 
     public boolean isNextDay() {
-        return nextDay;
+        return false;
     }
 
     public boolean isAfternoon() {
-        return afternoon;
+        return false;
     }
 
     public boolean isMorning() {
-        return morning;
+        return false;
     }
 }
