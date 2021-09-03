@@ -1,5 +1,7 @@
 package smily.plugin.countdays.scoreboard;
 
+import com.google.common.annotations.Beta;
+
 import jakarta.validation.constraints.NotNull;
 import net.md_5.bungee.api.ChatColor;
 
@@ -33,6 +35,7 @@ public class ScoreUpdater extends DayScoreboard{
         - switcher: determent if the method is activated or not.
     */
 
+    @Beta
     void changeTitleColor(@NotNull ChatColor color,@NotNull int cooldown, @NotNull boolean switcher){
         if (switcher){
             
