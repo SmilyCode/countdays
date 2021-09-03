@@ -20,7 +20,7 @@ public class DayScoreboard {
         dayScore.setScore(score);
     }
 
-    public void setToPlayer(Player player){
+    public void setScoreboardToPlayer(Player player){
         if (dayScoreboard != null){
             player.setScoreboard(dayScoreboard);
         } else {

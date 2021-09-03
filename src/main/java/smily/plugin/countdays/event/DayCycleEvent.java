@@ -1,22 +1,22 @@
 package smily.plugin.countdays.event;
 
+import org.bukkit.World;
+
 public class DayCycleEvent {
     private boolean night;
     private boolean morning;
     private boolean afternoon;
     private boolean nextDay;
-    private Integer time;
+    private long time;
+
+
     
     public boolean isNight() {
         return night;
     }
 
-    public Integer getTime() {
-        return time;
-    }
-
-    public void setTime(Integer time) {
-        this.time = time;
+    public long getExactTime(World world) {
+        return time = world.getTime();
     }
 
     public boolean isNextDay() {
