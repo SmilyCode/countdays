@@ -1,5 +1,5 @@
 package smily.plugin.countdays.scoreboard;
 
-public class ScoreUpdater{
+public class ScoreUpdater extends DayScoreboard{ 
     
 }
