@@ -1,7 +1,6 @@
 package smily.plugin.countdays.event;
 
 import org.bukkit.World;
-import org.bukkit.plugin.PluginAwareness.Flags;
 
 public class DayCycleEvent {
     private World world;
@@ -13,11 +12,9 @@ public class DayCycleEvent {
     public long getExactTime(World world) {
         return world.getTime();
     }    
-    
+
     public boolean isNextDay() {
-        if (isSunrise() || isMorning() || isNoon()){
-            return true;
-        }
+        if (isSunrise() || isMorning() || isNoon()) return true;
         else return false;
     }    
  
