@@ -5,9 +5,9 @@ import org.bukkit.scoreboard.Score;
 import org.bukkit.scoreboard.Scoreboard;
 
 public class DayScoreboard {
-    private Scoreboard dayScoreboard;
-    private Objective objective;
-    private Score dayScore;
+    protected Scoreboard dayScoreboard;
+    protected Objective objective;
+    protected Score dayScore;
 
     
     
