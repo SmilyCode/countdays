@@ -32,10 +32,6 @@ public class DayScoreboard {
 
     //set the scoreboard to player
     public void setScoreboardToPlayer(Player player){
-        if (dayScoreboard != null){
-            player.setScoreboard(dayScoreboard);
-        } else {
-            new NullPointerException("Scoreboard is null");
-        }
+        player.setScoreboard(dayScoreboard);
     }
 }
