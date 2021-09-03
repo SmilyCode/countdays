@@ -1,0 +1,6 @@
+name: CountDays
+version: ${project.version}
+main: smily.plugin.countdays.CountDays
+api-version: 1.17
+authors: [ Smily ]
+description: This Plugin Count Your Days
