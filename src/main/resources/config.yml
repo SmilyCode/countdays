@@ -1,11 +1,2 @@
-# the day score, will be updated upon your game.
+---
 score: 1
-
-# change color title color option
-change_color:
-  #true/false
-  switch: false
-  #green, red, blue, yellow (Beta) 
-  color: red
-  #seconds
-  cooldown: 1
