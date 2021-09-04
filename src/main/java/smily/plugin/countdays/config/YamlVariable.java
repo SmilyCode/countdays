@@ -4,19 +4,19 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class YamlVariable {
-    private Integer cooldown;
+    private Integer score;
 
-    public YamlVariable(Integer cooldown){
-        this.cooldown = cooldown;
+    public YamlVariable(Integer score){
+        this.score = score;
     }
 
     public YamlVariable(){}
 
-    public Integer getCooldown() {
-        return cooldown;
+    public Integer getScore() {
+        return score;
     }
 
-    public void setCooldown(Integer cooldown) {
-        this.cooldown = cooldown;
+    public void setScore(Integer score) {
+        this.score = score;
     }
 }

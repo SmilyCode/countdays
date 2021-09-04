@@ -8,6 +8,12 @@ public class DayCycleEvent {
     public DayCycleEvent(World world){
         this.world = world;
     }
+
+    public DayCycleEvent(){}
+    
+    public World getWorld() {
+        return world;
+    }
     
     public long getExactTime(World world) {
         return world.getTime();

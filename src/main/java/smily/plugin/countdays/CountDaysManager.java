@@ -10,7 +10,7 @@ public final class CountDaysManager{
     private static Plugin plugin;
 
     public static Plugin getPlugin() {
-        return plugin = Bukkit.getPluginManager().getPlugin("CountDay");
+        return plugin = Bukkit.getPluginManager().getPlugin("CountDays");
     }
 
     
