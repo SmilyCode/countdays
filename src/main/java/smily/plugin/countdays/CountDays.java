@@ -20,6 +20,8 @@ public final class CountDays extends JavaPlugin {
         dayCycleEvent = new DayCycleEvent();
         Bukkit.getOnlinePlayers().forEach(player -> { 
             Bukkit.getScheduler().scheduleSyncRepeatingTask(this, () -> {
+                dayCycleEvent.setWorld(player.getWorld());
+                System.out.println(dayCycleEvent.getExactTime());
                 if (dayCycleEvent.isMorning()) {
                     player.sendMessage("Its Morning");
                 } else

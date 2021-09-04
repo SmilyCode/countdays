@@ -14,9 +14,13 @@ public class DayCycleEvent {
     public World getWorld() {
         return world;
     }
+
+    public void setWorld(World world) {
+        this.world = world;
+    }
     
-    public long getExactTime(World world) {
-        return world.getTime();
+    public long getExactTime() {
+        return this.world.getTime();
     }    
 
     public boolean isNextDay() {
@@ -28,7 +32,7 @@ public class DayCycleEvent {
         long sunriseTimeStart = 23000;
         long sunriseTimeEnd = 24000;
 
-        if (getExactTime(world) <= sunriseTimeStart || getExactTime(world) >=sunriseTimeEnd) return true; 
+        if (getExactTime() >= sunriseTimeStart && getExactTime() <=sunriseTimeEnd) return true; 
         else return false;
     }
        
@@ -36,7 +40,7 @@ public class DayCycleEvent {
         long morningTimeStart = 0;
         long morningTimeEnd = 5999;
         
-        if (getExactTime(world) <= morningTimeStart || getExactTime(world) >=morningTimeEnd) return true; 
+        if (getExactTime() >= morningTimeStart && getExactTime() <=morningTimeEnd) return true; 
         else return false;
     }    
     
@@ -44,7 +48,7 @@ public class DayCycleEvent {
         long noonTimeStart = 6000;
         long noonTimeEnd = 11999;
         
-        if (getExactTime(world) <= noonTimeStart || getExactTime(world) >=noonTimeEnd) return true; 
+        if (getExactTime() >= noonTimeStart && getExactTime() <=noonTimeEnd) return true; 
         else return false;
     }   
 
@@ -52,7 +56,7 @@ public class DayCycleEvent {
         long sunsetTimeStart = 12000;
         long sunsetTimeEnd = 12999;
 
-        if (getExactTime(world) <= sunsetTimeStart || getExactTime(world) >=sunsetTimeEnd) return true; 
+        if (getExactTime() >= sunsetTimeStart && getExactTime() <=sunsetTimeEnd) return true; 
         else return false;
     }    
 
@@ -60,7 +64,7 @@ public class DayCycleEvent {
         long nightTimeStart = 13000;
         long nightTimeEnd = 17999;
 
-        if (getExactTime(world) <= nightTimeStart || getExactTime(world) >=nightTimeEnd) return true; 
+        if (getExactTime() >= nightTimeStart && getExactTime() <=nightTimeEnd) return true; 
         else return false;
     }    
 
@@ -68,7 +72,7 @@ public class DayCycleEvent {
         long midnightTimeStart = 18000;
         long midnightTimeEnd = 22999;
 
-        if (getExactTime(world) <= midnightTimeStart || getExactTime(world) >=midnightTimeEnd) return true; 
+        if (getExactTime() >= midnightTimeStart && getExactTime() <=midnightTimeEnd) return true; 
         else return false;
     }
 }
