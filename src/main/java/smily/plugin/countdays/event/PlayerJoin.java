@@ -31,10 +31,11 @@ public class PlayerJoin implements Listener {
 
         Bukkit.getScheduler().scheduleSyncRepeatingTask(CountDaysManager.getPlugin(), () -> 
         {
-            scoreUpdater.updateScore(dayCycleEvent.isNextDay(), dayScoreboard.getDayScore(), 1);
+            Boolean isNextDay = dayCycleEvent.isNextDay();
+            scoreUpdater.updateScore(isNextDay, dayScoreboard.getDayScore(), 1);
             pluginConfig.getYamlVariable().setScore(dayScoreboard.getDayScore().getScore());
+            pluginConfig.autoSave(isNextDay);
         }, 0, 20);
-        
     }
     
 }

@@ -73,7 +73,6 @@ public class PluginConfig {
     // write all current value to the config file
     public void writeAll(){
         if (!isAnyValueNull()){
-            System.out.println("Saving value to config.");
             try {
                 objectMapper.writeValue(fileConfig, yamlVariable);
             } catch (JsonGenerationException e) {
@@ -107,5 +106,11 @@ public class PluginConfig {
 
     public YamlVariable getYamlVariable() {
         return yamlVariable;
+    }
+
+    public void autoSave(boolean eventListener){
+        if (eventListener){
+            writeAll();
+        }
     }
 }
