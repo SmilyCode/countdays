@@ -33,7 +33,7 @@ public class PlayerJoin implements Listener {
         {
             scoreUpdater.updateScore(dayCycleEvent.isNextDay(), dayScoreboard.getDayScore(), 1);
             pluginConfig.getYamlVariable().setScore(dayScoreboard.getDayScore().getScore());
-        }, 0, 200);
+        }, 0, 20);
         
     }
     
