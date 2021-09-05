@@ -1,9 +1,11 @@
 package smily.plugin.countdays.scoreboard;
 
 
+import org.bukkit.scoreboard.Score;
+
 import jakarta.validation.constraints.NotNull;
 
-public class ScoreUpdater extends DayScoreboard{ 
+public class ScoreUpdater{ 
     
     /*
         Update score from DayScoreboard to current Score.
@@ -14,9 +16,11 @@ public class ScoreUpdater extends DayScoreboard{
         arguments:
         switcher: determent if the method is activated or not.
     */
-    public final void updateScore(@NotNull boolean switcher){
+    public final void updateScore(@NotNull boolean switcher, Score score, int value){
         if (switcher){
-            score += 1;
+            int scoreValue = score.getScore();
+            scoreValue += value;
+            score.setScore(scoreValue);
         }
     }
 

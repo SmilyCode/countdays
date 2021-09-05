@@ -11,6 +11,8 @@ import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.dataformat.yaml.YAMLFactory;
 
+import org.springframework.beans.factory.annotation.Autowired;
+
 import jakarta.validation.constraints.NotNull;
 import smily.plugin.countdays.CountDaysManager;
 
@@ -19,7 +21,8 @@ public class PluginConfig {
     private final File fileConfig = new File(CountDaysManager.getPlugin().getDataFolder(), "config.yml");
     private final ObjectMapper objectMapper = new ObjectMapper(new YAMLFactory());
     @NotNull
-    private YamlVariable yamlVariable = new YamlVariable();
+    @Autowired
+    private YamlVariable yamlVariable;
     
     // create config that store all data
     public void createDefaultConfig(){
@@ -70,6 +73,7 @@ public class PluginConfig {
     // write all current value to the config file
     public void writeAll(){
         if (!isAnyValueNull()){
+            System.out.println("Saving value to config.");
             try {
                 objectMapper.writeValue(fileConfig, yamlVariable);
             } catch (JsonGenerationException e) {
@@ -101,4 +105,7 @@ public class PluginConfig {
         } else new FileSystemException(fileConfig.getAbsolutePath());
     }
 
+    public YamlVariable getYamlVariable() {
+        return yamlVariable;
+    }
 }

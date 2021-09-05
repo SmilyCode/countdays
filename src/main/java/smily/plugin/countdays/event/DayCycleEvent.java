@@ -4,6 +4,7 @@ import org.bukkit.World;
 
 public class DayCycleEvent {
     private World world;
+    private boolean nextDayDetector = false;
 
     public DayCycleEvent(World world){
         this.world = world;
@@ -24,8 +25,18 @@ public class DayCycleEvent {
     }    
 
     public boolean isNextDay() {
-        if (isSunrise() || isMorning() || isNoon()) return true;
-        else return false;
+        if (isSunrise() || isMorning() || isNoon())
+        { 
+            if (nextDayDetector == true){
+                nextDayDetector = false;
+                return true;
+            } else return false;
+        }
+        else
+        { 
+            nextDayDetector = true;
+            return false;
+        }
     }    
  
     public boolean isSunrise() {

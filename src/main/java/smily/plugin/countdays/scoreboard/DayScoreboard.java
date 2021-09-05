@@ -2,6 +2,7 @@ package smily.plugin.countdays.scoreboard;
 
 import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
+import org.bukkit.scoreboard.DisplaySlot;
 import org.bukkit.scoreboard.Objective;
 import org.bukkit.scoreboard.Score;
 import org.bukkit.scoreboard.Scoreboard;
@@ -10,28 +11,34 @@ import jakarta.validation.constraints.NotNull;
 
 public class DayScoreboard {
     @NotNull
-    protected Scoreboard dayScoreboard;
+    private final Scoreboard dayScoreboard = Bukkit.getScoreboardManager().getNewScoreboard();
 
     @NotNull
-    protected Objective objective;
+    private final Objective objective = dayScoreboard.registerNewObjective("Day", "dummy", "Hari");
 
     @NotNull
-    protected Score dayScore;
+    private final Score dayScore = objective.getScore("ke -");
 
-    @NotNull 
-    protected int score;
+    // displays scoreboard at spesified player
+    public void displayScoreboard(Player player){
+        if (dayScore.getScore() == 0){
+            new NullPointerException("Score cannot be null.");
+        }
 
-    //create scoreboard
-    void createScoreboard(){
-        dayScoreboard = Bukkit.getScoreboardManager().getNewScoreboard();
-
-        objective = dayScoreboard.registerNewObjective("Day", "dummy", "Hari");
-        dayScore = objective.getScore("ke -");
-        dayScore.setScore(score);
-    }
-
-    //set the scoreboard to player
-    public void setScoreboardToPlayer(Player player){
+        objective.setDisplaySlot(DisplaySlot.SIDEBAR);
         player.setScoreboard(dayScoreboard);
     }
+
+    public Score getDayScore() {
+        return dayScore;
+    }
+
+    public Scoreboard getDayScoreboard() {
+        return dayScoreboard;
+    }
+
+    public Objective getObjective() {
+        return objective;
+    }
+    
 }
